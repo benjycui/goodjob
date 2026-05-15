@@ -30,6 +30,7 @@ claude plugin add github:benjycui/goodjob
 
 ```bash
 git clone https://github.com/benjycui/goodjob.git /tmp/goodjob
+mkdir -p ~/.claude/skills
 cp -r /tmp/goodjob/skills/goodjob ~/.claude/skills/goodjob
 rm -rf /tmp/goodjob
 ```
