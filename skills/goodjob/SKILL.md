@@ -59,12 +59,16 @@ See [classification-guide.md](classification-guide.md) for detailed examples.
 
 Check if claude-mem MCP tools are available (look for `claude-mem` in the available skills/tools list).
 
-**If claude-mem is installed:**
+**Then verify a write tool exists** (e.g., `observe`, `add_observation`, or similar) — not just search/read tools. If only read tools exist, claude-mem cannot be used for storage.
+
+**If claude-mem write tools are available:**
 1. WRITE observations using claude-mem MCP tools (not built-in memory files)
 2. Do NOT fall back to the Write tool + `memory/*.md` files
-3. The only acceptable use of built-in memory is when claude-mem is NOT installed
+3. The only acceptable use of built-in memory is when claude-mem write tools are NOT available
 
-**Common mistake:** searching claude-mem to check for duplicates, then writing to built-in memory files anyway. If you searched claude-mem, you MUST also write to it.
+**If only claude-mem read tools exist (or claude-mem is not installed):** Use built-in memory files without hesitation or apology.
+
+**Common mistake:** searching claude-mem to check for duplicates, then writing to built-in memory files anyway. If you searched claude-mem AND a write tool exists, you MUST also write to it.
 
 ### Then classify each learning:
 
