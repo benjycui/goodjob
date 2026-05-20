@@ -57,7 +57,14 @@ See [classification-guide.md](classification-guide.md) for detailed examples.
 
 ### Choose storage backend FIRST
 
-Check if claude-mem MCP tools are available (look for `claude-mem` in the available skills/tools list). **If claude-mem is installed, use it as the PRIMARY storage — do NOT fall back to built-in memory.** Built-in memory is only for when claude-mem is not available.
+Check if claude-mem MCP tools are available (look for `claude-mem` in the available skills/tools list).
+
+**If claude-mem is installed:**
+1. WRITE observations using claude-mem MCP tools (not built-in memory files)
+2. Do NOT fall back to the Write tool + `memory/*.md` files
+3. The only acceptable use of built-in memory is when claude-mem is NOT installed
+
+**Common mistake:** searching claude-mem to check for duplicates, then writing to built-in memory files anyway. If you searched claude-mem, you MUST also write to it.
 
 ### Then classify each learning:
 
