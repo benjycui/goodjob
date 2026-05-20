@@ -20,13 +20,16 @@ When you appreciate your AI agent's work, `goodjob` triggers a review of the con
 
 ## Installation
 
-### As a plugin (recommended)
+### As a plugin (recommended, auto-updates)
+
+Add the marketplace and install:
 
 ```bash
-claude plugin add github:benjycui/goodjob
+/plugin marketplace add benjycui/goodjob
+/plugin install goodjob@goodjob
 ```
 
-### As a personal skill (manual)
+### As a personal skill (manual, no auto-updates)
 
 ```bash
 git clone https://github.com/benjycui/goodjob.git /tmp/goodjob

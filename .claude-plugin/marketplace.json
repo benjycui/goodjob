@@ -1,0 +1,18 @@
+{
+  "name": "goodjob",
+  "owner": {
+    "name": "benjycui"
+  },
+  "metadata": {
+    "description": "Learn from what worked — save non-obvious learnings when users appreciate your work",
+    "homepage": "https://github.com/benjycui/goodjob"
+  },
+  "plugins": [
+    {
+      "name": "goodjob",
+      "version": "0.1.0",
+      "source": ".",
+      "description": "Learn from what worked — when users appreciate your work, review the conversation and save non-obvious learnings to memory, CLAUDE.md, or new skills"
+    }
+  ]
+}
