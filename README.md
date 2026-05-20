@@ -58,13 +58,15 @@ Casual "thanks" or "ok good" won't trigger a full review — the skill is conser
 
 ## Where Learnings Are Saved
 
-| Learning Type | Built-in Memory | claude-mem |
+When [claude-mem](https://github.com/thedotmack/claude-mem) is installed, it is used as the **primary** storage. Built-in memory is the fallback.
+
+| Learning Type | claude-mem (preferred) | Built-in memory (fallback) |
 |---|---|---|
-| User preference / working style | `feedback` memory | `decision` observation |
-| Project context not in code | `project` memory | `discovery` observation |
-| External resource reference | `reference` memory | `discovery` observation |
-| Mistakes learned from | `feedback` memory | `bugfix` observation |
-| Tactical insight | `feedback` or `project` memory | `discovery` observation |
+| User preference / working style | `decision` observation | `feedback` memory |
+| Project context not in code | `discovery` observation | `project` memory |
+| External resource reference | `discovery` observation | `reference` memory |
+| Mistakes learned from | `bugfix` observation | `feedback` memory |
+| Tactical insight | `discovery` observation | `feedback` or `project` memory |
 | Reusable technique (proven across multiple scenarios) | New skill via `/writing-skills` | New skill via `/writing-skills` |
 | Codebase convention | CLAUDE.md addition | CLAUDE.md addition |
 

@@ -55,19 +55,21 @@ See [classification-guide.md](classification-guide.md) for detailed examples.
 
 ## Step 3: Classify and Persist
 
-For each learning, pick the best fit:
+### Choose storage backend FIRST
 
-| Learning Type | Where to Save | Example |
+Check if claude-mem MCP tools are available (look for `claude-mem` in the available skills/tools list). **If claude-mem is installed, use it as the PRIMARY storage — do NOT fall back to built-in memory.** Built-in memory is only for when claude-mem is not available.
+
+### Then classify each learning:
+
+| Learning Type | claude-mem (preferred) | Built-in memory (fallback) |
 |---|---|---|
-| User preference or working style | `feedback` memory | "User prefers one bundled PR over many small ones for refactors" |
-| Project context not in code | `project` memory | "Auth migration is compliance-driven, not tech debt" |
-| External resource pointer | `reference` memory | "Oncall dashboard at grafana.internal/d/api-latency" |
-| Mistake or wrong turn learned from | `feedback` memory | "Assumed all skills should be shareable — over-generalized" |
-| Tactical insight worth remembering | `feedback` or `project` memory depending on scope | "Connection pool state is a non-obvious source of shared mutable state in WebSocket race conditions" |
-| Reusable technique (proven across multiple scenarios) | Suggest creating a new personal skill | A debugging workflow validated across different codebases |
-| Codebase convention not yet documented | Suggest CLAUDE.md addition | "All API errors use the shared ErrorResponse type" |
-
-**claude-mem:** If claude-mem MCP tools are available, use them as the primary persistence target — they provide searchable cross-session memory. Map to: `decision` for preferences, `discovery` for project context/resources/insights, `bugfix` for mistakes. Use built-in memory as fallback.
+| User preference or working style | `decision` observation | `feedback` memory |
+| Project context not in code | `discovery` observation | `project` memory |
+| External resource pointer | `discovery` observation | `reference` memory |
+| Mistake or wrong turn learned from | `bugfix` observation | `feedback` memory |
+| Tactical insight worth remembering | `discovery` observation | `feedback` or `project` memory |
+| Reusable technique (proven across multiple scenarios) | Suggest creating a new personal skill | Suggest creating a new personal skill |
+| Codebase convention not yet documented | Suggest CLAUDE.md addition | Suggest CLAUDE.md addition |
 
 **Skill suggestion threshold:** Only suggest a new skill when a technique has proven effective across multiple distinct scenarios. A single good insight is a memory, not a skill.
 

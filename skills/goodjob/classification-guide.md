@@ -4,6 +4,8 @@ Reference for deciding what to save and where.
 
 ## Decision Flow
 
+**Storage backend:** If claude-mem is installed, use it as PRIMARY — do not fall back to built-in memory. The labels below show both; use whichever applies.
+
 ```
 Is this learning derivable from reading the code right now?
   YES → Don't save
@@ -15,10 +17,10 @@ Is it a generic best practice any developer would know?
   YES → Don't save
   NO  ↓
 Is it about the user's preferences or working style?
-  YES → feedback memory (built-in) / decision obs (claude-mem)
+  YES → claude-mem `decision` / built-in `feedback` memory
   NO  ↓
 Is it project context not visible in code (why decisions were made, external constraints)?
-  YES → project memory (built-in) / discovery obs (claude-mem)
+  YES → claude-mem `discovery` / built-in `project` memory
   NO  ↓
 Is it a reusable technique that would help in future, unrelated tasks?
   YES → suggest a new personal skill
@@ -27,13 +29,13 @@ Is it a codebase convention that should be documented?
   YES → suggest CLAUDE.md addition
   NO  ↓
 Is it a pointer to an external resource?
-  YES → reference memory (built-in) / discovery obs (claude-mem)
+  YES → claude-mem `discovery` / built-in `reference` memory
   NO  ↓
 Is it a mistake or wrong turn worth remembering?
-  YES → feedback memory (built-in) / bugfix obs (claude-mem)
+  YES → claude-mem `bugfix` / built-in `feedback` memory
   NO  ↓
 Is it a tactical insight worth remembering (debugging approach, non-obvious behavior)?
-  YES → feedback or project memory depending on scope / discovery obs (claude-mem)
+  YES → claude-mem `discovery` / built-in `feedback` or `project` memory
   NO  → Don't save
 ```
 
